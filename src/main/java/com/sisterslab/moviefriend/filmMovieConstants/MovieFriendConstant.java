@@ -11,6 +11,8 @@ public enum MovieFriendConstant {
     ADDED(" -> ADDED "),
     UPDATED(" -> UPDATED"),
     C("c"),
+    OR(" OR "),
+    ARROW(" -> "),
     GIVENINFORMATIONNOTMATCHED("Given information not matched");
 
     private final String name;

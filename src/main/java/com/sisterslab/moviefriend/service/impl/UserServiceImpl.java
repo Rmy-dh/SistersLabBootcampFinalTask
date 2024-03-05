@@ -60,6 +60,7 @@ public class UserServiceImpl implements UserService {
             userRepository.deleteById(user.getId());
             LOGGER.info(name + MovieFriendConstant.QUOTES.getName() + surName+MovieFriendConstant.DELETED.getName());
         }
+        LOGGER.info(name+MovieFriendConstant.QUOTES.getName()+surName+MovieFriendConstant.NOTFOUND.getName());
     }
     public UserResponse getUserByName(String name) {
         User user = userRepository.findByName(name);
@@ -88,7 +89,9 @@ public class UserServiceImpl implements UserService {
                 userRepository.save(user.get());
                 LOGGER.info(film.get().getName()+MovieFriendConstant.DELETED.getName());
             }
+            LOGGER.info(film.get().getName()+MovieFriendConstant.NOTFOUND.getName());
         }
+        LOGGER.error(MovieFriendConstant.GIVENINFORMATIONNOTMATCHED.getName());
     }
     @Override
     public void markTheFilm(Long userId, Long filmId) {

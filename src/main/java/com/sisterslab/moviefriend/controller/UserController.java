@@ -14,8 +14,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserController {
     private final UserServiceImpl userService;
-
-
     @PostMapping
     public UserResponse saveUser(@RequestBody UserRequest userRequest){
         return userService.saveUser(userRequest);
@@ -47,7 +45,5 @@ public class UserController {
     @PutMapping
     public void markTheFilm(@RequestParam Long userId,@RequestParam Long filmId){
         userService.markTheFilm(userId,filmId);
-
     }
-
 }

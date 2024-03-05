@@ -66,6 +66,7 @@ public  class FilmServiceImpl implements FilmService {
             filmRepository.deleteById(filmRepository.findByName(name).getId());
             LOGGER.info(name+MovieFriendConstant.DELETED.getName());
         }
+        LOGGER.info(name+MovieFriendConstant.NOTFOUND.getName());
     }
     public FilmResponse addUseToFilmList(Long filmId, Long userId) {
         Optional<Film> film=filmRepository.findById(filmId);
@@ -76,6 +77,7 @@ public  class FilmServiceImpl implements FilmService {
             filmUserService.updateFilmId(filmId,userId);
             return FilmConverter.convertToFilmResponse(filmRepository.save(film.get()));
         }
+        LOGGER.info(filmId + MovieFriendConstant.OR.getName()+userId+MovieFriendConstant.NOTFOUND.getName());
         return  null;
     }
     @Override
@@ -87,25 +89,40 @@ public  class FilmServiceImpl implements FilmService {
                 .map(FilmConverter::convertToFilmResponse)
                 .collect(Collectors.toList());
     }
+    @Override
+    public List<FilmResponse> getFilmByCategory(String category) {
+        return filmRepository.findAll()
+                .stream()
+                .filter(i->i.getCategory().equals(category))
+                .map(FilmConverter::convertToFilmResponse)
+                .collect(Collectors.toList());
+    }
     private boolean setValue(String name,FilmRequest filmRequest){
         Film film=filmRepository.findByName(name);
         if(Objects.nonNull(film) && Objects.nonNull(filmRequest)){
             if(filmRequest.getScore() !=0){
+                LOGGER.info(film.getScore()+MovieFriendConstant.ARROW.getName()
+                        +filmRequest.getScore()+MovieFriendConstant.UPDATED.getName());
                 film.setScore(filmRequest.getScore());
                 filmRepository.save(film);
                 return  true;
             }
             if(Objects.nonNull(filmRequest.getExplanation())){
+                LOGGER.info(film.getExplanation()+MovieFriendConstant.ARROW.getName()
+                        +filmRequest.getExplanation()+MovieFriendConstant.UPDATED.getName());
                 film.setExplanation(filmRequest.getExplanation());
                 filmRepository.save(film);
                 return true;
             }
             if(Objects.nonNull(filmRequest.getName())){
+                LOGGER.info(film.getName()+MovieFriendConstant.ARROW.getName()
+                        +filmRequest.getName()+MovieFriendConstant.UPDATED.getName());
                 film.setName(filmRequest.getName());
                 filmRepository.save(film);
                 return true;
             }
         }
+        LOGGER.error(MovieFriendConstant.GIVENINFORMATIONNOTMATCHED.getName());
         return false;
     }
 }

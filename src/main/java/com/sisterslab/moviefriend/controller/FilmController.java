@@ -53,4 +53,8 @@ public class FilmController {
     public List<FilmResponse> getFilmIfScoreGreaterThan(@PathVariable int score){
         return filmService.getFilmIfScoreGreaterThan(score);
     }
+    @GetMapping("/category/{category}")
+    public List<FilmResponse>  getFilmByCategory(@PathVariable String category){
+        return filmService.getFilmByCategory(category);
+    }
 }

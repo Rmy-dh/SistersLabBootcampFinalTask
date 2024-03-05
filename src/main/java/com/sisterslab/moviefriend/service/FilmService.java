@@ -15,4 +15,5 @@ public interface FilmService {
      void deleteFilmByName(String name);
      FilmResponse addUseToFilmList(Long filmId, Long userId);
     List<FilmResponse> getFilmIfScoreGreaterThan(int score);
+    List<FilmResponse> getFilmByCategory(String category);
 }
