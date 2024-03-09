@@ -14,7 +14,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -31,8 +30,12 @@ public class UserServiceImpl implements UserService {
     private final IFilmRepository filmRepository;
     private final FilmUserService filmUserService;
     public UserResponse saveUser(UserRequest userRequest) {
-        if (Objects.isNull(userRepository.findByNameAndSurName(userRequest.getName(), userRequest.getSurName()))) {
-            return UserConverter.convertToUserResponse(userRepository.save(UserConverter.convertToUser(userRequest)));
+        try{
+            if (Objects.isNull(userRepository.findByNameAndSurName(userRequest.getName(), userRequest.getSurName()))) {
+                return UserConverter.convertToUserResponse(userRepository.save(UserConverter.convertToUser(userRequest)));
+            }
+        }catch(Exception e){
+            LOGGER.error(MovieFriendConstant.USERNAMNOTCORRECT.getName()+MovieFriendConstant.ARROW.getName()+ userRequest.getUserName());
         }
         LOGGER.info(userRequest.getName()+MovieFriendConstant.QUOTES.getName()+userRequest.getSurName()
                 +MovieFriendConstant.ALREADYEXIST.getName());

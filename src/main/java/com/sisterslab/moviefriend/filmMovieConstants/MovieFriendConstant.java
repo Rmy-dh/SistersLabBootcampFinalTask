@@ -13,6 +13,9 @@ public enum MovieFriendConstant {
     C("c"),
     OR(" OR "),
     ARROW(" -> "),
+    YYYYMMDD("yyyy-MM-dd"),
+    O("o"),
+    USERNAMNOTCORRECT("User Name not correct"),
     GIVENINFORMATIONNOTMATCHED("Given information not matched");
 
     private final String name;
