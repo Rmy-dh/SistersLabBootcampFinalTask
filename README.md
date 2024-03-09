@@ -35,14 +35,7 @@ Bu proje, Spring Boot ve temel CRUD (Create, Read, Update, Delete) işlemlerini 
    - Web arayüzü, kullanıcıların uygulamaya erişimini kolaylaştırmalı ve CRUD işlemlerini gerçekleştirebilmelidir.
      İleri Seviye Özellikler (İsteğe Bağlı):
 
->### 📌Technologies
-* Java 17
-* Spring Boot 3.0
-* Spring Data JPA
-* H2 In Memory Database
-* Postgre Sql
-* Restful API
-* Maven
+
 
 
 
