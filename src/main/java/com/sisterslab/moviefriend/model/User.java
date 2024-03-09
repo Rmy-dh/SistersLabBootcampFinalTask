@@ -6,8 +6,6 @@ import com.sisterslab.moviefriend.filmMovieConstants.MovieFriendConstant;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +14,6 @@ import java.util.List;
 @Getter
 @Setter
 public class User extends BaseModel {
-    private static final Logger LOGGER= LogManager.getLogger(User.class);
 
     private String name;
     private String surName;

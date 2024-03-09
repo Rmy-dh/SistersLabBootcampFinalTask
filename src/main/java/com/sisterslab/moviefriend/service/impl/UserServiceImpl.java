@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
                 return UserConverter.convertToUserResponse(userRepository.save(UserConverter.convertToUser(userRequest)));
             }
         }catch(Exception e){
-            LOGGER.error(MovieFriendConstant.USERNAMNOTCORRECT.getName()+MovieFriendConstant.ARROW.getName()+ userRequest.getUserName());
+            LOGGER.error(MovieFriendConstant.USERNAMENOTCORRECT.getName()+MovieFriendConstant.ARROW.getName()+ userRequest.getUserName());
         }
         LOGGER.info(userRequest.getName()+MovieFriendConstant.QUOTES.getName()+userRequest.getSurName()
                 +MovieFriendConstant.ALREADYEXIST.getName());
