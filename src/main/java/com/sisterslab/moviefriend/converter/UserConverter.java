@@ -28,7 +28,7 @@ public class UserConverter {
         if(!user.getFilms().isEmpty()){
             userResponse.setFilms(user.getFilms()
                     .stream()
-                    .map(FilmConverter::convertToFilmResponse)
+                    .map(FilmConverter::convertToFilmResponseForUserTable)
                     .collect(Collectors.toList()));
         }
         return userResponse;
