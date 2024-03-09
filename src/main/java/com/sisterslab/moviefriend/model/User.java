@@ -44,6 +44,4 @@ public class User extends BaseModel {
         films.get(films.indexOf(film)).setMark(MovieFriendConstant.C.getName());
 
     }
-
-
 }

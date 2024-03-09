@@ -3,6 +3,7 @@ package com.sisterslab.moviefriend.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.sisterslab.moviefriend.core.model.BaseModel;
+import com.sisterslab.moviefriend.filmMovieConstants.MovieFriendConstant;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,7 +23,7 @@ public class Film extends BaseModel {
     private Date releaseDate;
 
     private int score;
-    private String mark="o";               //o-> open (not watched) c-> closed (watched)
+    private String mark= MovieFriendConstant.O.getName();               //o-> open (not watched) c-> closed (watched)
     private String category;
 
     @ManyToMany(fetch = FetchType.LAZY)
