@@ -51,15 +51,15 @@ Bu proje, Spring Boot ve temel CRUD (Create, Read, Update, Delete) işlemlerini 
 
 
 **Film Service**<br>
-User End Point : http://localhost:8087/api/v1/films
+Film End Point : http://localhost:8087/api/v1/films
 ``` 
  ▪️ http://localhost:8087/api/v1/films ->  Save Film ,  Get All Films                                                   -> POST, GET
- ▪️ http://localhost:8087/api/v1/films/{filmName} ->  Get 1 film by film name                                           -> GET                                                                                                -> DELETE
+ ▪️ http://localhost:8087/api/v1/films/{filmName} ->  Get 1 film by film name                                           -> GET                                                                                                
  ▪️ http://localhost:8087/api/v1/films/film/{name} ->  Update film score by film name                                   -> PUT
  ▪️ http://localhost:8087/api/v1/films/film/{filmId}/{userId} ->  Update user list at film entity  table                -> PUT
  ▪️ http://localhost:8087/api/v1/films/score/{score} ->  Get films by score                                             -> GET
  ▪️ http://localhost:8087/api/v1/films/category/{category} -> Get films by film category                                -> GET
- ▪️ http://localhost:8087/api/v1/films/{name} ->  Update film name or explanation by film name,                         -> PUT
+ ▪️ http://localhost:8087/api/v1/films/{name} ->  Update film name or explanation by film name,                         -> PUT, DELETE
   Delete film by name 
 
 ```
@@ -67,7 +67,7 @@ User End Point : http://localhost:8087/api/v1/films
 
 **UserService**
 
-Film End Point : http://localhost:8087/api/v1/users
+User End Point : http://localhost:8087/api/v1/users
 ``` 
 ▪️ http://localhost:8087/api/v1/users -> Save User , Get All Users                                                     -> POST, GET
 ▪️ http://localhost:8087/api/v1/users/{name}/{surName} -> Delete user by user name and surname                         -> DELETE
