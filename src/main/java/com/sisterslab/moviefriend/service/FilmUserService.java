@@ -1,9 +1,9 @@
-package com.sisterslab.moviefriend.service.impl;
+package com.sisterslab.moviefriend.service;
 
 import com.sisterslab.moviefriend.model.Film;
 import com.sisterslab.moviefriend.model.User;
-import com.sisterslab.moviefriend.repository.IFilmRepository;
-import com.sisterslab.moviefriend.repository.IUserRepository;
+import com.sisterslab.moviefriend.repository.FilmRepository;
+import com.sisterslab.moviefriend.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -14,9 +14,9 @@ import java.util.Objects;
 @RequiredArgsConstructor
 public class FilmUserService {
 
-     private  final IFilmRepository filmRepository;
+     private  final FilmRepository filmRepository;
 
-     private  final IUserRepository userRepository;
+     private  final UserRepository userRepository;
 
     //USER TABLE -> film added to films -> update FILM TABLE users
     public void updateUserId(Long userId, Long filmId) {

@@ -2,7 +2,7 @@ package com.sisterslab.moviefriend.controller;
 
 import com.sisterslab.moviefriend.dto.request.UserRequest;
 import com.sisterslab.moviefriend.dto.response.UserResponse;
-import com.sisterslab.moviefriend.service.impl.UserServiceImpl;
+import com.sisterslab.moviefriend.service.UserService;
 import com.sisterslab.moviefriend.shared.endpoints.UserEndPoints;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping(UserEndPoints.USER)
 @RequiredArgsConstructor
 public class UserController {
-    private final UserServiceImpl userService;
+    private final UserService userService;
     @PostMapping
     public UserResponse saveUser(@RequestBody UserRequest userRequest){
         return userService.saveUser(userRequest);

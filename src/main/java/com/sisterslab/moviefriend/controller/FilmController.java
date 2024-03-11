@@ -2,7 +2,7 @@ package com.sisterslab.moviefriend.controller;
 
 import com.sisterslab.moviefriend.dto.request.FilmRequest;
 import com.sisterslab.moviefriend.dto.response.FilmResponse;
-import com.sisterslab.moviefriend.service.impl.FilmServiceImpl;
+import com.sisterslab.moviefriend.service.FilmService;
 import com.sisterslab.moviefriend.shared.endpoints.FilmEndPoints;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +14,7 @@ import java.util.Objects;
 @RequestMapping(FilmEndPoints.FILM)
 @RequiredArgsConstructor
 public class FilmController {
-   private final FilmServiceImpl filmService;
+   private final FilmService filmService;
 
     @PostMapping
     public FilmResponse saveFilm(@RequestBody FilmRequest filmRequest){
