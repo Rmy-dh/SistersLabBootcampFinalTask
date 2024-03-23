@@ -35,6 +35,11 @@ Bu proje, Spring Boot ve temel CRUD (Create, Read, Update, Delete) işlemlerini 
    - Web arayüzü, kullanıcıların uygulamaya erişimini kolaylaştırmalı ve CRUD işlemlerini gerçekleştirebilmelidir.
      İleri Seviye Özellikler (İsteğe Bağlı)
 
+``` 
+ ▪️ Film ve User arasında @ManyToMany ilişkisi vardır.
+ ▪️ FilmComment ve Film arasında @ManyToOne ilişkisi vardır.
+ ▪️ FilmComment ve User arasında @ManyToOne ilişkisi vardır.
+``` 
 
 ------------------------------------------
 
@@ -64,7 +69,6 @@ Film End Point : http://localhost:8087/api/v1/films
 
 ```
 
-
 **UserService**
 
 User End Point : http://localhost:8087/api/v1/users
@@ -77,6 +81,15 @@ User End Point : http://localhost:8087/api/v1/users
 ▪️ http://localhost:8087/api/v1/users/{name}/{surName}?password=123 -> Update user password by user name and surname   -> PUT
 ▪️ http://localhost:8087/api/v1/users?userId=1&filmId=1 -> if Film1  exist in User1's film list ,                      -> PUT
  film mark attibute changed to close  
+
+```
+
+**FilmCommentService**
+
+Film Comment End Point : http://localhost:8087/api/v1/filmComment
+```
+▪️ http://localhost:8087/api/v1/filmComment/{filmId}/{userId}  -> Save film comment,Update comment and delete comment  -> POST, PUT, DELETE              
+▪️️️️ http://localhost:8087/api/v1/filmComment/movieScore/{filmId}/{userId} -> Update film comment                        -> PUT
 
 ```
 
