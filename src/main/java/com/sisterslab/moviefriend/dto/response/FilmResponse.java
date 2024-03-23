@@ -12,4 +12,5 @@ public class FilmResponse {
     private int score;
     private String category;
     private List<UserResponse> users=new ArrayList<>();
+    private List<FilmCommentResponse> filmCommentResponses=new ArrayList<>();
 }

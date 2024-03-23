@@ -31,6 +31,12 @@ public class UserConverter {
                     .map(FilmConverter::convertToFilmResponseForUserTable)
                     .collect(Collectors.toList()));
         }
+        if(user.getFilmComments() != null && !user.getFilmComments().isEmpty()){
+            userResponse.setFilmCommentResponses(user.getFilmComments()
+                    .stream()
+                    .map(FilmCommentConverter::convertToFilmResponse)
+                    .collect(Collectors.toList()));
+        }
         return userResponse;
     }
 }

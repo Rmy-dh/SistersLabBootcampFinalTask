@@ -33,11 +33,17 @@ public class Film extends BaseModel {
             inverseJoinColumns = @JoinColumn(name = "user-id")
     )
     private List<User> users=new ArrayList<>();
+
+    @OneToMany(mappedBy = "film",cascade = CascadeType.MERGE,fetch = FetchType.LAZY,orphanRemoval = true)
+    private List<FilmComment> filmComments;
     public  void addUserToUserList(User user){
-        users.add(user);
+        this.users.add(user);
     }
     public void deleteUserFromUserList(User user){
-        users.remove(user);
+        this.users.remove(user);
+    }
+    public void addFilmCommentsToFilmTable(FilmComment filmComment){
+        this.filmComments.add(filmComment);
     }
 }
 

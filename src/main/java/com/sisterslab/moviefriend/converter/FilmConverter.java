@@ -28,6 +28,14 @@ public class FilmConverter {
                     .map(UserConverter::convertToUserResponse)
                     .collect(Collectors.toList()));
         }
+        //created film -> filmComments=[]
+        //added comment to film -> filmComments=[.....]
+        if( film.getFilmComments()!=null && !film.getFilmComments().isEmpty()){
+            filmResponse.setFilmCommentResponses(film.getFilmComments()
+                    .stream()
+                    .map(FilmCommentConverter::convertToFilmResponse)
+                    .collect(Collectors.toList()));
+        }
         return  filmResponse;
     }
     public FilmResponse convertToFilmResponseForUserTable(Film film){

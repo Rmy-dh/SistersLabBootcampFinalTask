@@ -30,6 +30,9 @@ public class User extends BaseModel {
     @ManyToMany(mappedBy = "users",fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
     private List<Film> films=new ArrayList<>();
 
+    @OneToMany(mappedBy = "user",cascade = CascadeType.MERGE,fetch = FetchType.LAZY,orphanRemoval = true)
+    private List<FilmComment> filmComments;
+
     public void addFilmToFilmList(Film film){
         films.add(film);
     }
@@ -40,5 +43,8 @@ public class User extends BaseModel {
     public void markFilm(Film film){
         films.get(films.indexOf(film)).setMark(MovieFriendConstant.C.getName());
 
+    }
+    public void addFilmCommentToUserTable(FilmComment filmComment){
+        this.filmComments.add(filmComment);
     }
 }

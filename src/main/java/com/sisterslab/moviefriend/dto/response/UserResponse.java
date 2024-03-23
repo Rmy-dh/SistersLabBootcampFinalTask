@@ -12,4 +12,5 @@ public class UserResponse {
     private String email;
     private String password;
     private List<FilmResponse> films=new ArrayList<>();
+    private List<FilmCommentResponse> filmCommentResponses=new ArrayList<>();
 }
