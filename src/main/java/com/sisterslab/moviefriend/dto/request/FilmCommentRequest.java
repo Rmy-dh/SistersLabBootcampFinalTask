@@ -2,11 +2,9 @@ package com.sisterslab.moviefriend.dto.request;
 
 import com.sisterslab.moviefriend.model.Film;
 import com.sisterslab.moviefriend.model.User;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 public class FilmCommentRequest {
     private String comment;
     private int movieScore;

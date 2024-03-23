@@ -15,6 +15,8 @@ public enum MovieFriendConstant {
     ARROW(" -> "),
     YYYYMMDD("yyyy-MM-dd"),
     O("o"),
+    NOTUPDATED("Not Updated!"),
+    NOTDELETED("Not Deleted !"),
     USERNAMENOTCORRECT("User Name not correct"),
     GIVENINFORMATIONNOTMATCHED("Given information not matched");
 

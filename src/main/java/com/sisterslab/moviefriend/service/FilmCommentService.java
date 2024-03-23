@@ -49,33 +49,36 @@ public class FilmCommentService {
         if(isExist(filmId,userId)){
             for(FilmComment filmComment:filmCommentRepository.findAll()){
                 if(filmComment.getFilm().getId().equals(filmId )&& filmComment.getUser().getId().equals(userId)){
+                    LOGGER.info(filmComment.getComment()
+                            +MovieFriendConstant.UPDATED.getName()+filmCommentRequest.getComment());
                     filmComment.setComment(filmCommentRequest.getComment());
-                    LOGGER.info(filmComment.getComment()+MovieFriendConstant.UPDATED.getName()+filmCommentRequest.getComment());
                     return FilmCommentConverter.convertToFilmResponse(filmCommentRepository.save(filmComment));
                 }
             }
         }
+        LOGGER.info(MovieFriendConstant.NOTUPDATED.getName());
         return null;
     }
 
     public String updateMovieScore(Long filmId, Long userId, FilmCommentRequest filmCommentRequest) {
         FilmComment filmComment= filmCommentRepository.findFilmCommentByFilm_IdAndUser_Id(filmId,userId);
         if(isExist(filmId,userId) && Objects.nonNull(filmComment)){
+            LOGGER.info(filmComment.getMovieScore()+MovieFriendConstant.UPDATED.getName()
+                    +filmCommentRequest.getMovieScore());
             filmComment.setMovieScore(filmCommentRequest.getMovieScore());
             filmCommentRepository.save(filmComment);
-            LOGGER.info(filmComment.getMovieScore()+MovieFriendConstant.UPDATED.getName()+filmCommentRequest.getMovieScore());
-            return "Updated !";
+            return MovieFriendConstant.SCOREUPDATED.getName();
         }
-        return "Not Updated!";
+        return MovieFriendConstant.NOTUPDATED.getName();
     }
 
     public String deleteFilmComment(Long filmId, Long userId) {
         FilmComment filmComment=filmCommentRepository.findFilmCommentByFilm_IdAndUser_Id(filmId,userId);
         if(Objects.nonNull(filmComment)){
             filmCommentRepository.deleteById(filmComment.getId());
-            return "Deleted !";
+            return filmComment.getComment()+MovieFriendConstant.DELETED.getName();
         }
-        return "Not Deleted !";
+        return MovieFriendConstant.NOTDELETED.getName();
     }
     private boolean isExist(Long filmId, Long userId){
         List<FilmComment> films=filmCommentRepository.findAll();
